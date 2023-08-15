@@ -1,0 +1,6 @@
+GET http://127.0.0.1:5000/ask
+Content-Type: application/json
+
+{
+    "query":"what information do you have"
+}

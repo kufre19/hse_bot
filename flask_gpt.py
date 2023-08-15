@@ -24,7 +24,7 @@ chain = ConversationalRetrievalChain.from_llm(
 )
 chat_history = []
 
-@app.route('/ask', methods=['POST'])
+@app.route('/ask', methods=['GET'])
 def ask():
     data = request.json
     query = data['query']
