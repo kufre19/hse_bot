@@ -1,4 +1,7 @@
 from flask import Flask, request, jsonify
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import os
 import openai
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
