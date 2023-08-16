@@ -1,6 +1,6 @@
 langchain
 openai
-chromadb
+chromadb==0.3.29
 tiktoken
 unstructured==0.7.12
 flask
