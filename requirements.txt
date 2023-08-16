@@ -5,3 +5,4 @@ tiktoken
 unstructured==0.7.12
 flask
 gunicorn
+python-dotenv
