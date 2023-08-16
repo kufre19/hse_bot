@@ -9,12 +9,12 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
-# import constants
+import constants
 
 app = Flask(__name__)
 
 # Your existing code setup
-# os.environ["OPENAI_API_KEY"] = constants.APIKEY
+os.environ["OPENAI_API_KEY"] = constants.APIKEY
 
 PERSIST = False
 loader = DirectoryLoader("data/")
@@ -32,6 +32,11 @@ def ask():
     result = chain({"question": query, "chat_history": chat_history})
     chat_history.append((query, result['answer']))
     return jsonify(answer=result['answer'])
+
+@app.route('/', methods=['GET'])
+def home():
+    return "home works"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
