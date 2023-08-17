@@ -12,6 +12,7 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
+import logging
 # import constants
 
 app = Flask(__name__)
@@ -40,6 +41,16 @@ def ask():
 def home():
     return "home works"
 
+@app.errorhandler(500)
+def internal_server_error(error):
+    app.logger.error('Server Error: %s', error)
+    return "500 error", 500
+
+@app.errorhandler(Exception)
+def handle_exception(error):
+    app.logger.error('Unhandled Exception: %s', error)
+    return "500 error", 500
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

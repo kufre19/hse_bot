@@ -1,4 +1,4 @@
-POST http://0.0.0.0:8000/ask
+GET https://hse-model.azurewebsites.net/ask
 Content-Type: application/json
 
 {
