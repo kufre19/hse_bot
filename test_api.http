@@ -1,0 +1,6 @@
+POST https://hse-model.azurewebsites.net/ask
+Content-Type: application/json
+
+{
+    "query":"what information do you have"
+}
