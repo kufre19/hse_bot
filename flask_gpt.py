@@ -33,7 +33,7 @@ chat_history = []
 def ask():
     data = request.json
     query = data['query']
-    result = chain({"question": "answer only in english"+query, "chat_history": chat_history})
+    result = chain({"question": "answer only in english\n"+query, "chat_history": chat_history})
     chat_history.append((query, result['answer']))
     return jsonify(answer=result['answer'])
 
